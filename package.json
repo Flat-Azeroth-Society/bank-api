@@ -1,0 +1,9 @@
+{
+  "name": "bank-api",
+  "version": "0.0.1",
+  "description": "A REST API for the guild bank",
+  "main": "bin/index.js",
+  "repository": "https://github.com/Flat-Azeroth-Society/bank-api.git",
+  "author": "Rudy Pelrine <drawncloser@gmail.com>",
+  "license": "MIT"
+}
