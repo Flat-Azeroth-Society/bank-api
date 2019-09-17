@@ -6,9 +6,9 @@ An express API backing the various Guild Bank clients for the Flat Azeroth Socie
 
 ### Endpoints
 
-#### `/` (Root)
+#### GET `/api/v1/items/:itemId`
 
-This just responds hello world for now.
+Grabs an item from the test data.
 
 ## Development
 
