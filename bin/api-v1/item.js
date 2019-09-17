@@ -39,9 +39,10 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
     return (mod && mod.__esModule) ? mod : { "default": mod };
 };
 Object.defineProperty(exports, "__esModule", { value: true });
-var __1 = __importDefault(require(".."));
 var testdb_1 = require("../db/test/testdb");
-__1.default.get("/items/:itemId", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
+var express_1 = __importDefault(require("express"));
+var itemsRouter = express_1.default.Router();
+itemsRouter.get("/:itemId", function (req, res) { return __awaiter(void 0, void 0, void 0, function () {
     var _a, _b;
     return __generator(this, function (_c) {
         switch (_c.label) {
@@ -59,4 +60,5 @@ __1.default.get("/items/:itemId", function (req, res) { return __awaiter(void 0,
         }
     });
 }); });
+exports.default = itemsRouter;
 //# sourceMappingURL=item.js.map

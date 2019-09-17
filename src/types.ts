@@ -1,5 +1,3 @@
-import { Dictionary, Request, Response } from "express-serve-static-core";
-
 type WowServer = "Incendius";
 
 type CrudOperations = "create" | "replace" | "update" | "delete";
@@ -22,11 +20,18 @@ export type WowCharacter = {
   server: WowServer;
 };
 
-export type DatabaseDriver<RecordType extends keyof RecordTypes> = {
+export type DatabaseCrudOperationMap<RecordType extends keyof RecordTypes> = {
   [crudOp in CrudOperations]?: DatabaseCrudOperation<RecordType>;
 };
 
+export type DatabaseQueryOperationMap<RecordType extends keyof RecordTypes> = {
+  [queryOp in QueryOperations]?: DatabaseQueryOperation<RecordType>;
+};
+
 export type DatabaseCrudOperation<RecordType extends keyof RecordTypes> = (
-  req: Request<Dictionary<string>>,
-  res: Response
-) => RecordTypes[RecordType] | undefined;
+  input?: Partial<RecordTypes[RecordType]>
+) => Promise<RecordTypes[RecordType] | undefined>;
+
+export type DatabaseQueryOperation<RecordType extends keyof RecordTypes> = (
+  input?: Partial<RecordTypes[RecordType]>
+) => Promise<RecordTypes[RecordType][]>;
