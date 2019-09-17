@@ -3,6 +3,8 @@ import { PORT } from "./constants";
 
 const app = express();
 
+app.use(express.json());
+
 app.get("/", (req, res) => {
   res.send("Hello world!");
 });
@@ -10,3 +12,5 @@ app.get("/", (req, res) => {
 app.listen(PORT, () => {
   console.log(`server listening on http://localhost:${PORT}`);
 });
+
+export default app;
